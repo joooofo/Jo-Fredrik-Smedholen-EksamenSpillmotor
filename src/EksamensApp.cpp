@@ -28,7 +28,7 @@ void EksamensApp::createScene(void)
  
     // Create the player
 
-
+/*
     Ogre::Entity* ogreHead = mSceneMgr->createEntity("Head", "penguin.mesh");
     ogreHead->setCastShadows(true);
     // Create a SceneNode and attach the Entity to it
@@ -40,7 +40,8 @@ void EksamensApp::createScene(void)
     mAnimationState = ogreHead->getAnimationState("amuse");
     mAnimationState->setLoop(true);
     mAnimationState->setEnabled(true);
-
+*/
+    // THIS IS WERE WE CREATE THE PLAYER IN THE SCENE.
     player = new Player("_player",mSceneMgr);
 
 
@@ -156,7 +157,7 @@ bool EksamensApp::keyPressed(const OIS::KeyEvent &arg)
         {
             mEnemyWalkSpeed = 45;
             mPlayerWalkSpeed = 25;
-            playerNode->setPosition(Ogre::Vector3(-40.0f, 5.0f, 0.0f));
+            player->mPlayerNode->setPosition(Ogre::Vector3(-40.0f, 5.0f, 0.0f));
             mSceneMgr->setAmbientLight(Ogre::ColourValue(0.4f, 0.4f, 0.4f));
         }
         break;
@@ -220,7 +221,7 @@ void EksamensApp::createCamera(void)
 bool EksamensApp::frameRenderingQueued(const Ogre::FrameEvent &evt){
 
     //update player
-    /*
+
     Ogre::Real playerMove = mPlayerWalkSpeed * evt.timeSinceLastFrame;
     mAnimationState->addTime(evt.timeSinceLastFrame);
 
@@ -251,20 +252,20 @@ bool EksamensApp::frameRenderingQueued(const Ogre::FrameEvent &evt){
 
     //Move player
     if (forward)
-        playerNode->translate(0.0, 0.0, -1.0 * playerMove);
+        player->mPlayerNode->translate(0.0, 0.0, -1.0 * playerMove);
     if (backwards)
-        playerNode->translate(0.0, 0.0, 1.0 * playerMove);
+        player->mPlayerNode->translate(0.0, 0.0, 1.0 * playerMove);
     if (left)
-        playerNode->translate(-1.0 * playerMove, 0.0, 0.0);
+        player->mPlayerNode->translate(-1.0 * playerMove, 0.0, 0.0);
     if (right)
-        playerNode->translate(1.0 * playerMove, 0.0, 0.0);
+        player->mPlayerNode->translate(1.0 * playerMove, 0.0, 0.0);
 
     //update camera
-    mCamera->lookAt(playerNode->getPosition());
+    mCamera->lookAt(player->mPlayerNode->getPosition());
 
 
     //Collisions
-
+/*
     //fall down
     if (playerNode->getPosition().z < -25){
         playerNode->translate(0.0, -2.0 * playerMove, 0.0);
