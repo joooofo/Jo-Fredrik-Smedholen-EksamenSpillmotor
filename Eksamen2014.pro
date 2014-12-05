@@ -1,5 +1,5 @@
 TEMPLATE = app
-TARGET = Eksamen2013
+TARGET = Eksamen
 
 DEFINES -= UNICODE
 
