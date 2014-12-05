@@ -320,6 +320,8 @@ bool EksamensApp::frameRenderingQueued(const Ogre::FrameEvent &evt){
         {
             mSceneMgr->getEntity("PickupEntity1")->setVisible(false);
             mPickups ++;
+           playerStatus->LoseLife();
+            std::cout << "do i lose life?" << std::endl;
         }
     }
     if(player->getEntity()->
@@ -329,6 +331,9 @@ bool EksamensApp::frameRenderingQueued(const Ogre::FrameEvent &evt){
         {
             mSceneMgr->getEntity("PickupEntity2")->setVisible(false);
             mPickups ++;
+             playerStatus->LoseLife();
+         //  liv--;
+            std::cout << "do i lose life?" << std::endl;
         }
     }
     if(player->getEntity()->
@@ -338,6 +343,8 @@ bool EksamensApp::frameRenderingQueued(const Ogre::FrameEvent &evt){
         {
             mSceneMgr->getEntity("PickupEntity3")->setVisible(false);
             mPickups ++;
+            playerStatus->LoseLife();
+            std::cout << "do i lose life?" << std::endl;
         }
     }
 
@@ -348,6 +355,9 @@ bool EksamensApp::frameRenderingQueued(const Ogre::FrameEvent &evt){
         {
             mSceneMgr->getEntity("PickupEntity4")->setVisible(false);
             mPickups ++;
+             playerStatus->LoseLife();
+           // playerStatus->LoseLife(1--);
+            std::cout << "do i lose life?" << std::endl;
         }
     }
 
@@ -360,6 +370,12 @@ bool EksamensApp::frameRenderingQueued(const Ogre::FrameEvent &evt){
             mPlayerWalkSpeed = 0;
             mEnemyWalkSpeed = 0;
             mPickups = 10; //no reset
+
+            ParticleSystem* fountainParticle = mSceneMgr->createParticleSystem("Fountain", "Examples/GreenyNimbus");
+            SceneNode* particleNode = mSceneMgr->getRootSceneNode()->createChildSceneNode("Particle");
+            particleNode->attachObject(fountainParticle);
+            particleNode->setPosition(50.0f, 8.0f, 0.0f);
+
         }
     }
 

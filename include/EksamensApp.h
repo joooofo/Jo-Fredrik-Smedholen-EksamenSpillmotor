@@ -3,6 +3,8 @@
 
 #include "OgreFramework.h"
 #include "Player.h"
+#include "playerStatus.h"
+#include "stdlib.h"
 
 class EksamensApp : public OgreFramework
 {
@@ -17,6 +19,8 @@ protected:
     virtual bool keyPressed( const OIS::KeyEvent &arg );
     virtual bool keyReleased( const OIS::KeyEvent &arg );
     virtual bool mouseMoved( const OIS::MouseEvent &arg );
+
+
 
     Ogre::Real mDistance;
     Ogre::Vector3 mDirection;
@@ -35,8 +39,10 @@ protected:
 
 
     Player *player;
+    PlayerStatus *playerStatus;
     //Camera node
     SceneNode *mCameraNode;
+
 
     Ogre::SceneNode* mPickupNode1;
     Ogre::SceneNode* mPickupNode2;

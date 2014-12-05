@@ -28,9 +28,11 @@ release {
 SOURCES += \
     src/EksamensApp.cpp \
     src/OgreFramework.cpp \
-    src/Player.cpp
+    src/Player.cpp \
+    src/playerstatus.cpp
 
 HEADERS += \
     include/EksamensApp.h \
     include/OgreFramework.h \
-    include/Player.h
+    include/Player.h \
+    include/playerstatus.h
