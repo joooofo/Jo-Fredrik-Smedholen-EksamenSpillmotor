@@ -11,8 +11,8 @@ class PlayerStatus
 {
 public:
     PlayerStatus();
-    void LoseLife();
-    int liv = 3;
+    int LoseLife(int life);
+    int liv;
 };
 
 #endif // PLAYERSTATUS_H

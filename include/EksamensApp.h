@@ -6,6 +6,7 @@
 #include "playerStatus.h"
 #include "stdlib.h"
 
+
 class EksamensApp : public OgreFramework
 {
 public:
@@ -43,15 +44,17 @@ protected:
     //Camera node
     SceneNode *mCameraNode;
 
-
+    int life = 2;
     Ogre::SceneNode* mPickupNode1;
     Ogre::SceneNode* mPickupNode2;
     Ogre::SceneNode* mPickupNode3;
     Ogre::SceneNode* mPickupNode4;
 
+
     SceneManager *sceneMgr;
 
     int mPickups;
+     float canGetHit = 1.0f;
 
     Ogre::AnimationState *mAnimationState;
 

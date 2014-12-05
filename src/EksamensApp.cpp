@@ -320,7 +320,8 @@ bool EksamensApp::frameRenderingQueued(const Ogre::FrameEvent &evt){
         {
             mSceneMgr->getEntity("PickupEntity1")->setVisible(false);
             mPickups ++;
-           playerStatus->LoseLife();
+
+           //   playerStatus->LoseLife(life--);
             std::cout << "do i lose life?" << std::endl;
         }
     }
@@ -331,8 +332,8 @@ bool EksamensApp::frameRenderingQueued(const Ogre::FrameEvent &evt){
         {
             mSceneMgr->getEntity("PickupEntity2")->setVisible(false);
             mPickups ++;
-             playerStatus->LoseLife();
-         //  liv--;
+          //   playerStatus->LoseLife(life--);
+
             std::cout << "do i lose life?" << std::endl;
         }
     }
@@ -343,7 +344,7 @@ bool EksamensApp::frameRenderingQueued(const Ogre::FrameEvent &evt){
         {
             mSceneMgr->getEntity("PickupEntity3")->setVisible(false);
             mPickups ++;
-            playerStatus->LoseLife();
+         //   playerStatus->LoseLife(life--);
             std::cout << "do i lose life?" << std::endl;
         }
     }
@@ -355,8 +356,8 @@ bool EksamensApp::frameRenderingQueued(const Ogre::FrameEvent &evt){
         {
             mSceneMgr->getEntity("PickupEntity4")->setVisible(false);
             mPickups ++;
-             playerStatus->LoseLife();
-           // playerStatus->LoseLife(1--);
+//             playerStatus->LoseLife(life--);
+
             std::cout << "do i lose life?" << std::endl;
         }
     }
