@@ -85,6 +85,8 @@ void EksamensApp::createScene(void)
     mListIterator = 0;
 
     // Create pickups:
+
+
     Ogre::Entity* entPickup = mSceneMgr->createEntity("PickupEntity1", "Barrel.mesh");
     mPickupNode1 = mSceneMgr->getRootSceneNode()->
             createChildSceneNode("PickupNode1", Ogre::Vector3(20.0f, 3.0f, 20.0f));

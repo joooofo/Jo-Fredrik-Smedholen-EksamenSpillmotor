@@ -2,6 +2,7 @@
 #define __EksamensApp_h_
 
 #include "OgreFramework.h"
+#include "Player.h"
 
 class EksamensApp : public OgreFramework
 {
@@ -25,12 +26,23 @@ protected:
     Ogre::Real mEnemyWalkSpeed;
     Ogre::Real mPlayerWalkSpeed;
     Ogre::SceneNode *mEnemyNode;
+
+    // Playernode -
     Ogre::SceneNode* playerNode;
+
+    // GoalNode - will be removed if i get the time.
     Ogre::SceneNode* mGoalNode;
+
+
+    Player *player;
+
     Ogre::SceneNode* mPickupNode1;
     Ogre::SceneNode* mPickupNode2;
     Ogre::SceneNode* mPickupNode3;
     Ogre::SceneNode* mPickupNode4;
+
+    SceneManager *sceneMgr;
+
     int mPickups;
 
     Ogre::AnimationState *mAnimationState;
