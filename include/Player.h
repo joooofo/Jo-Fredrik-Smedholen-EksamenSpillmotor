@@ -9,6 +9,9 @@ using namespace Ogre;
 
 class Player
 {
+protected:
+     String mName;
+
 public:
     Ogre::Entity *mEntity; /// Character entity
     Ogre::SceneManager *mSceneMgr;
@@ -22,10 +25,10 @@ public:
 
 
     Player(Ogre::String name, Ogre::SceneManager *sceneMgr);
-    Ogre::Entity *getEntity() {
-        return mEntity;
+   // Ogre::Entity *getEntity() {
+   //     return mEntity;
 
-    }
+  //  }
 };
 
 #endif // PLAYER_H

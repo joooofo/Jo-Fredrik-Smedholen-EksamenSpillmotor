@@ -27,6 +27,8 @@ void EksamensApp::createScene(void)
     mSceneMgr->setSkyBox(true, "Examples/SpaceSkyBox", 500, false);
  
     // Create the player
+
+
     Ogre::Entity* ogreHead = mSceneMgr->createEntity("Head", "penguin.mesh");
     ogreHead->setCastShadows(true);
     // Create a SceneNode and attach the Entity to it
@@ -38,6 +40,8 @@ void EksamensApp::createScene(void)
     mAnimationState = ogreHead->getAnimationState("amuse");
     mAnimationState->setLoop(true);
     mAnimationState->setEnabled(true);
+
+    player = new Player("_player",mSceneMgr);
 
 
     // Create the enemy
@@ -216,6 +220,7 @@ void EksamensApp::createCamera(void)
 bool EksamensApp::frameRenderingQueued(const Ogre::FrameEvent &evt){
 
     //update player
+    /*
     Ogre::Real playerMove = mPlayerWalkSpeed * evt.timeSinceLastFrame;
     mAnimationState->addTime(evt.timeSinceLastFrame);
 
@@ -330,8 +335,9 @@ bool EksamensApp::frameRenderingQueued(const Ogre::FrameEvent &evt){
         mPlayerWalkSpeed = 0;
         mEnemyWalkSpeed = 0;
     }
-
+*/
     return OgreFramework::frameRenderingQueued(evt);
+
 }
 
 
