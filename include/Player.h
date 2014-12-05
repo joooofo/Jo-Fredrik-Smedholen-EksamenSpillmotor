@@ -25,10 +25,12 @@ public:
 
 
     Player(Ogre::String name, Ogre::SceneManager *sceneMgr);
-   // Ogre::Entity *getEntity() {
-   //     return mEntity;
 
-  //  }
+
+    Ogre::Entity *getEntity() {   /// USING THIS TO GIVE THE PLAYER AN ENTITY THATS EASY TO GET
+        return mEntity;
+
+    }
 };
 
 #endif // PLAYER_H

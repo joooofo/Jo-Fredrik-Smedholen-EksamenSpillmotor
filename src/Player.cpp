@@ -12,7 +12,7 @@ Player::Player(Ogre::String name, Ogre::SceneManager *sceneMgr)
     // Create a SceneNode and attach the Entity to it
     mPlayerNode = mSceneMgr->getRootSceneNode()->createChildSceneNode(name, Ogre::Vector3(-40.0f, 5.0f, 0.0f)); // + "_penguinNode"
     mPlayerNode->attachObject(mEntity);
-
+    std::cout << name << std::endl;
     mPlayerNode->scale(0.2f, 0.2f, 0.2f);/// PLAYER SCALE
 
     mPlayerNode->rotate(Ogre::Vector3::UNIT_Y, Ogre::Degree(90)); /// PLAYER ROTATION

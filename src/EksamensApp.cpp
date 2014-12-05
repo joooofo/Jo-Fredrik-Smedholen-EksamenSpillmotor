@@ -265,21 +265,21 @@ bool EksamensApp::frameRenderingQueued(const Ogre::FrameEvent &evt){
 
 
     //Collisions
-/*
+
     //fall down
-    if (playerNode->getPosition().z < -25){
-        playerNode->translate(0.0, -2.0 * playerMove, 0.0);
+    if (player->mPlayerNode->getPosition().z < -25){
+        player->mPlayerNode->translate(0.0, -2.0 * playerMove, 0.0);
     }
-    if (playerNode->getPosition().z > 25) {
-        playerNode->translate(0.0, -2.0 * playerMove, 0.0);
+    if (player->mPlayerNode->getPosition().z > 25) {
+        player->mPlayerNode->translate(0.0, -2.0 * playerMove, 0.0);
     }
-    if (playerNode->getPosition().y < -30) {
+    if (player->mPlayerNode->getPosition().y < -30) {
         //Could take damage or reset game or something here...
-        playerNode->setPosition(Ogre::Vector3(-40.0f, 5.0f, 0.0f));
+        player->mPlayerNode->setPosition(Ogre::Vector3(-40.0f, 5.0f, 0.0f));
     }
 
     //Pickups
-    if(mSceneMgr->getEntity("Head")->
+    if(player->getEntity()->
             getWorldBoundingBox().intersects(mSceneMgr->getEntity("PickupEntity1")->getWorldBoundingBox()))
     {
         if (mSceneMgr->getEntity("PickupEntity1")->isVisible())
@@ -288,7 +288,7 @@ bool EksamensApp::frameRenderingQueued(const Ogre::FrameEvent &evt){
             mPickups ++;
         }
     }
-    if(mSceneMgr->getEntity("Head")->
+    if(player->getEntity()->
             getWorldBoundingBox().intersects(mSceneMgr->getEntity("PickupEntity2")->getWorldBoundingBox()))
     {
         if (mSceneMgr->getEntity("PickupEntity2")->isVisible())
@@ -297,7 +297,7 @@ bool EksamensApp::frameRenderingQueued(const Ogre::FrameEvent &evt){
             mPickups ++;
         }
     }
-    if(mSceneMgr->getEntity("Head")->
+    if(player->getEntity()->
             getWorldBoundingBox().intersects(mSceneMgr->getEntity("PickupEntity3")->getWorldBoundingBox()))
     {
         if (mSceneMgr->getEntity("PickupEntity3")->isVisible())
@@ -306,7 +306,8 @@ bool EksamensApp::frameRenderingQueued(const Ogre::FrameEvent &evt){
             mPickups ++;
         }
     }
-    if(mSceneMgr->getEntity("Head")->
+
+    if(player->getEntity()->
             getWorldBoundingBox().intersects(mSceneMgr->getEntity("PickupEntity4")->getWorldBoundingBox()))
     {
         if (mSceneMgr->getEntity("PickupEntity4")->isVisible())
@@ -317,7 +318,7 @@ bool EksamensApp::frameRenderingQueued(const Ogre::FrameEvent &evt){
     }
 
     //Goal
-    if(mSceneMgr->getEntity("Head")->
+    if(player->getEntity()->
             getWorldBoundingBox().intersects(mSceneMgr->getEntity("Goal")->getWorldBoundingBox()))
     {
         if (mPickups == 4 && mPlayerWalkSpeed != 0)
@@ -329,14 +330,14 @@ bool EksamensApp::frameRenderingQueued(const Ogre::FrameEvent &evt){
     }
 
     //Enemy
-    if(mSceneMgr->getEntity("Head")->
+    if(player->getEntity()->
             getWorldBoundingBox().intersects(mSceneMgr->getEntity("Enemy")->getWorldBoundingBox()))
     {
         //mSceneMgr->setAmbientLight(Ogre::ColourValue(0.9f, 0.1f, 0.1f));
         mPlayerWalkSpeed = 0;
         mEnemyWalkSpeed = 0;
     }
-*/
+
     return OgreFramework::frameRenderingQueued(evt);
 
 }
