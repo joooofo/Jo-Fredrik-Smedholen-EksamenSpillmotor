@@ -28,21 +28,10 @@ void EksamensApp::createScene(void)
  
     // Create the player
 
-/*
-    Ogre::Entity* ogreHead = mSceneMgr->createEntity("Head", "penguin.mesh");
-    ogreHead->setCastShadows(true);
-    // Create a SceneNode and attach the Entity to it
-    playerNode = mSceneMgr->getRootSceneNode()->createChildSceneNode("HeadNode", Ogre::Vector3(-40.0f, 5.0f, 0.0f));
-    playerNode->attachObject(ogreHead);
-    playerNode->scale(0.2f, 0.2f, 0.2f);
-    playerNode->rotate(Ogre::Vector3::UNIT_Y, Ogre::Degree(90));
-    // Set walking animation
-    mAnimationState = ogreHead->getAnimationState("amuse");
-    mAnimationState->setLoop(true);
-    mAnimationState->setEnabled(true);
-*/
     // THIS IS WERE WE CREATE THE PLAYER IN THE SCENE.
     player = new Player("_player",mSceneMgr);
+
+
 
 
     // Create the enemy
@@ -206,16 +195,28 @@ void EksamensApp::createFrameListener(void){
 
 void EksamensApp::createCamera(void)
 {
-    // create the camera
+
+    //create the camera
+    mCameraNode = mSceneMgr->getRootSceneNode ()->createChildSceneNode ("camera");
+
     mCamera = mSceneMgr->createCamera("PlayerCam");
     // set its position, direction
-    mCamera->setPosition(Ogre::Vector3(0,20,60));
+
+    // Attach cam to node
+
+    mCameraNode->attachObject(mCamera);
+
+  //  mCameraNode->setPosition(100,100,100);
+
+    //
+    mCameraNode->setPosition(Ogre::Vector3(-100,100,0));    //mCamera->setPosition(Ogre::Vector3(0,20,60)); Old Camera
     mCamera->lookAt(Ogre::Vector3(0,6,0));
     // set the near clip distance
     mCamera->setNearClipDistance(5);
 
     // the rest is set up by default Sdk config
     mCameraMan = new OgreBites::SdkCameraMan(mCamera);   // create a default camera controller
+
 }
 
 bool EksamensApp::frameRenderingQueued(const Ogre::FrameEvent &evt){
@@ -252,16 +253,49 @@ bool EksamensApp::frameRenderingQueued(const Ogre::FrameEvent &evt){
 
     //Move player
     if (forward)
+    {
         player->mPlayerNode->translate(0.0, 0.0, -1.0 * playerMove);
+         mCameraNode->translate(0.0,0.0,-1.0 * playerMove);
+    // Worst camerafix , should have made the node setup which is what you should do. camera node, chase cam & player.
+    }
+    else
+    {
+         mCameraNode->translate(0.0,0.0,0.0);
+    }
     if (backwards)
+    {
         player->mPlayerNode->translate(0.0, 0.0, 1.0 * playerMove);
+        mCameraNode->translate(0.0,0.0,1.0 * playerMove);
+    }
+        else
+    {
+        mCameraNode->translate(0.0,0.0,0.0);
+    }
     if (left)
+    {
         player->mPlayerNode->translate(-1.0 * playerMove, 0.0, 0.0);
+         mCameraNode->translate(-1.0 * playerMove,0.0,0.0);
+    }
+    else
+    {
+    mCameraNode->translate(0.0,0.0,0.0);
+    }
     if (right)
+    {
         player->mPlayerNode->translate(1.0 * playerMove, 0.0, 0.0);
+        mCameraNode->translate(1.0 * playerMove,0.0,0.0);
+    }
+    else
+    {
+         mCameraNode->translate(0.0,0.0,0.0);
+    }
 
     //update camera
-    mCamera->lookAt(player->mPlayerNode->getPosition());
+
+        mCamera->lookAt(player->mPlayerNode->getPosition());
+    // mCameraNode->lookAt(player->mPlayerNode->getPosition());
+   // mCamera->->translate(0.0, 0.0, -1.0 * playerMove);
+
 
 
     //Collisions
@@ -337,6 +371,8 @@ bool EksamensApp::frameRenderingQueued(const Ogre::FrameEvent &evt){
         mPlayerWalkSpeed = 0;
         mEnemyWalkSpeed = 0;
     }
+
+
 
     return OgreFramework::frameRenderingQueued(evt);
 

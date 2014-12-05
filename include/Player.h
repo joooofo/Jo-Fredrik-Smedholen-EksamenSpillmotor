@@ -21,7 +21,8 @@ public:
     // update for movement / input.
     void update (Real elapsedTime, OIS::Keyboard *input, OIS::Mouse *mouseInput); // maybe ill use modes to determine camerastate.
     void resetPos();
-
+    void setCamera();
+     Ogre::Camera* mCamera;
 
 
     Player(Ogre::String name, Ogre::SceneManager *sceneMgr);

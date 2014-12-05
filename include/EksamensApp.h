@@ -35,6 +35,8 @@ protected:
 
 
     Player *player;
+    //Camera node
+    SceneNode *mCameraNode;
 
     Ogre::SceneNode* mPickupNode1;
     Ogre::SceneNode* mPickupNode2;

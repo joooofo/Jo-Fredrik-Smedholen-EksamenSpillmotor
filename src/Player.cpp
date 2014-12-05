@@ -24,6 +24,7 @@ Player::Player(Ogre::String name, Ogre::SceneManager *sceneMgr)
    // SHADOWS
     mEntity->setCastShadows(true);
 
+
 }
 
 void Player::update (Real elapsedTime, OIS::Keyboard *input, OIS::Mouse *mouseInput)
@@ -33,4 +34,30 @@ void Player::update (Real elapsedTime, OIS::Keyboard *input, OIS::Mouse *mouseIn
 void Player::resetPos()
 {
 
+}
+void Player::setCamera()
+{
+/*
+    mCamera = mSceneMgr->createCamera("PlayerCam");
+    // set it  // create the camera
+    s position, direction
+    mCamera->setPosition(Ogre::Vector3(-100,100,0));    //mCamera->setPosition(Ogre::Vector3(0,20,60)); Old Camera
+    mCamera->lookAt(Ogre::Vector3(0,6,0));
+    // set the near clip distance
+    mCamera->setNearClipDistance(5);
+
+    /*
+   /*
+    // create the camera
+    mCamera = mSceneMgr->createCamera("PlayerCam");
+    // set its position, direction
+    mCamera->setPosition(Ogre::Vector3(0,20,60));
+    mCamera->lookAt(Ogre::Vector3(0,6,0));
+    // set the near clip distance
+    mCamera->setNearClipDistance(5);
+    */
+
+    //MainNode = mSceneMgr->getRootSceneNode()->createChildSceneNode("MainNode");
+  //  CameraNode = mSceneMgr->getRootSceneNode()->createChildSceneNode("CameraNode");
+  //  CameraPitchNode =
 }

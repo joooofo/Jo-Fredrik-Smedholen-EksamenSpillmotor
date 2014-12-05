@@ -370,14 +370,17 @@ bool OgreFramework::keyPressed( const OIS::KeyEvent &arg )
     {
         mShutDown = true;
     }
+    // Currently removed to set a simple 3rd person follow camera instead of one used by key strokes.
+    //mCameraMan->injectKeyDown(arg);
 
-    mCameraMan->injectKeyDown(arg);
     return true;
 }
 
 bool OgreFramework::keyReleased( const OIS::KeyEvent &arg )
 {
-    mCameraMan->injectKeyUp(arg);
+    // Currently removed to set a simple 3rd person follow camera instead of one used by key strokes.
+   // mCameraMan->injectKeyUp(arg);
+
     return true;
 }
 
